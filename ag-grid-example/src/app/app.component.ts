@@ -15,10 +15,19 @@ export class AppComponent implements OnInit {
   title = 'app';
 
   columnDefs = [
-    {headerName: 'Make', field: 'make', checkboxSelection: true},
+    {headerName: 'Make', field: 'make', rowGroupIndex: 0},
     {headerName: 'Model', field: 'model'},
     {headerName: 'Price', field: 'price'}
   ];
+
+  autoGroupColumnDef = {
+    headerName: 'Model',
+    field: 'model',
+    cellRenderer: 'agGroupCellRenderer',
+    cellRendererParams: {
+      checkbox: true
+    }
+  }
 
   rowData: any;
 
